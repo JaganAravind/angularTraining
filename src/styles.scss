@@ -1,2 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import "app/modules/styles/custom";
+.app-header {
+  margin-top: 10px;
+//   padding: 20px 0;
+  h3 {
+    color: #ebebeb;
+    letter-spacing: 3px;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+}

@@ -1,53 +1,80 @@
 <div class="login-container">
-  <div class="container-fluid p-0">
+  <div class="container-fluid">
     <div class="black-overlay"></div>
-    <!-- Default form login -->
-    <form class="text-center border border-light p-5">
-
-      <p class="h4 mb-4">Sign in</p>
-
-      <!-- Email -->
-      <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
-
-      <!-- Password -->
-      <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
-
-      <div class="d-flex justify-content-around">
-        <div>
-          <!-- Remember me -->
-          <mdb-checkbox [default]="true">Remember me</mdb-checkbox>
-        </div>
-        <div>
-          <!-- Forgot password -->
-          <a href="">Forgot password?</a>
+    <header class="app-header">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <h3>myAppLogo</h3>
         </div>
       </div>
+    </header>
+    <div class="form-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-3 col-md-3 col-lg-3"></div>
+          <div class="col-sm-6 col-md-6 col-lg-6">
+            <form [formGroup]="loginForm" class="text-center bg-white p-5" (ngSubmit)="login()">
 
-      <!-- Sign in button -->
-      <button mdbBtn color="info" block="true" class="my-4" type="submit">Sign in</button>
+              <p class="h4 mb-4">Sign-in to your account</p>
 
-      <!-- Register -->
-      <p>Not a member?
-        <a href="">Register</a>
-      </p>
+              <p [ngClass]="{ 'has-error': isSubmitted && formControls.userName.errors }">
+                <input type="text" placeholder="Username" class="form-control" formControlName="userName">
+              </p>
 
-      <!-- Social login -->
-      <p>or sign in with:</p>
+              <div *ngIf="isSubmitted && formControls.userName.errors" class="help-block">
+                <div class="text-danger" *ngIf="formControls.userName.errors.required">Username is required</div>
+              </div>
 
-      <a type="button" class="light-blue-text mx-2">
-        <mdb-icon fab icon="facebook"></mdb-icon>
-      </a>
-      <a type="button" class="light-blue-text mx-2">
-        <mdb-icon fab icon="twitter"></mdb-icon>
-      </a>
-      <a type="button" class="light-blue-text mx-2">
-        <mdb-icon fab icon="linkedin"></mdb-icon>
-      </a>
-      <a type="button" class="light-blue-text mx-2">
-        <mdb-icon fab icon="github"></mdb-icon>
-      </a>
+              <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+                <input type="password" placeholder="Password" class="form-control" formControlName="password">
+              </p>
 
-    </form>
-    <!-- Default form login -->
+              <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">
+                <div class="text-danger" *ngIf="formControls.password.errors.required">Password is required</div>
+              </div>
+
+              <button mdbBtn color="info" block="true" class="my-4" type="submit">Sign in</button>
+
+              <!-- Register -->
+              <p>Not a member?
+                <a href="">Register</a>
+              </p>
+
+              <!-- Social login -->
+              <p>or sign in with:</p>
+
+              <a type="button" class="light-blue-text mx-2">
+                <mdb-icon fab icon="facebook"></mdb-icon>
+              </a>
+              <a type="button" class="light-blue-text mx-2">
+                <mdb-icon fab icon="twitter"></mdb-icon>
+              </a>
+              <a type="button" class="light-blue-text mx-2">
+                <mdb-icon fab icon="linkedin"></mdb-icon>
+              </a>
+              <a type="button" class="light-blue-text mx-2">
+                <mdb-icon fab icon="github"></mdb-icon>
+              </a>
+
+            </form>
+          </div>
+          <div class="col-sm-3 col-md-3 col-lg-3"></div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
